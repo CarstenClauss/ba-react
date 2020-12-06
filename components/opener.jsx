@@ -9,12 +9,14 @@ const Wrapper = styled.div`
   height: 100vh;
 `;
 
-export default function Opener() {
+export default function Opener(props) {
+  const { children } = props;
+
   return (
     <Wrapper>
       <Hero>
         <Title>
-          REACT
+          {children}
         </Title>
       </Hero>
     </Wrapper>

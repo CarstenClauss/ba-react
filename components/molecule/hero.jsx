@@ -12,7 +12,6 @@ const StyledImage = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #90B7B6;
 `;
 
 export default function Hero({ children }) {

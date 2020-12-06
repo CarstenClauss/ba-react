@@ -6,7 +6,6 @@ import NavBar from './molecule/navbar';
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100%;
   background-color: #222129;
   color: white;
 `;
@@ -14,8 +13,8 @@ const Wrapper = styled.div`
 const Content = styled.div`
   background-color: #222129;
   margin-top: 1em;
-  padding: 1em;
   width: 100vw;
+  height: 100vh;
 `;
 
 const NavWrapper = styled.div`

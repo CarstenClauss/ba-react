@@ -3,38 +3,25 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Layout from '../components/layout';
+import RenderForm from '../components/molecule/renderform';
 
 const Wrapper = styled.div`
   height: 100vh;
 `;
 
+const StyledTitle = styled.h2`
+  margin: 0 0 0.5em 1em;
+`;
+
+const Description = styled.div`
+  margin: 0 0 0 2em;
+`;
+
 const ComponentList = styled.div`
   margin: 5px;
-  height: 50px;
-`;
-
-const FormWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  text-align: center;
-  padding: 1em;
-`;
-
-const StyledButton = styled.button`
-  font-size: 0.9em;
-  border: white solid 1px;
-  background-color: transparent;
-  color: white;
-  padding: 0.5em;
-  margin: 1em 2em 0 0;
-`;
-
-const StyledInput = styled.input`
-  font-size: 0.9em;
-  border: white solid 1px;
-  padding: 0.5em;
-  margin: 1em 2em 0 0;
+  height: 40px;
+  width: 40px;
+  font-size: 0.5em;
 `;
 
 const ComponentContainer = styled.div`
@@ -46,60 +33,39 @@ const ComponentContainer = styled.div`
 `;
 
 export default function Performance() {
+  const title = 'Performance';
+  const description = 'How long does it take to render x components?';
+
   const [variable, setVariable] = useState([]);
-  const [input, setInput] = useState(0);
 
   let numbers = [];
   let i = 1;
+
+  const childHandler = (input) => {
+    numbers = Array.from({ length: input }, () => (Math.random() * 0xFFFFFF << 0).toString(16));
+    setVariable(numbers);
+    console.log(numbers);
+  };
 
   const componentStyle = (color, x) => ({
     backgroundColor: x + color,
   });
 
-  function handleSubmit(x, e) {
-    e.preventDefault();
-    numbers = Array.from({ length: x }, () => (Math.random() * 0xFFFFFF << 0).toString(16));
-    setVariable(numbers);
-  }
-
-  function handleRemove(e) {
-    e.preventDefault();
-    numbers = [];
-    setInput(0);
-    setVariable(numbers);
-  }
-
   return (
     <Layout>
       <Wrapper>
-        Performance Page
-        <FormWrapper>
-          <StyledInput
-            type="number"
-            name="number"
-            placeholder="number"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            required
-          />
-          <StyledButton
-            type="button"
-            onClick={(e) => handleSubmit(input, e)}
-          >
-            Add Components
-          </StyledButton>
-          <StyledButton
-            type="button"
-            onClick={(e) => handleRemove(e)}
-          >
-            Remove Components
-          </StyledButton>
-        </FormWrapper>
+        <StyledTitle>
+          {title}
+        </StyledTitle>
+        <Description>
+          {description}
+        </Description>
+        <RenderForm action={(input) => childHandler(input)} />
         <ComponentContainer>
           { variable.map((number) => (
             <ComponentList
               key={i++}
-              value={number}
+              value={number.toString()}
               style={componentStyle(number, '#')}
             >
               #
