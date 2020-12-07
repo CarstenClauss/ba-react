@@ -26,6 +26,7 @@ const Navigation = styled.div`
 
 const NavigationButton = styled.a`
   padding: 0 1em;
+  cursor: pointer;
 `;
 
 export default function Navbar() {
