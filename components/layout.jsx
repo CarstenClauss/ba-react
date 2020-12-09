@@ -14,7 +14,6 @@ const Content = styled.div`
   background-color: #222129;
   margin-top: 1em;
   width: 100vw;
-  height: 100vh;
 `;
 
 const NavWrapper = styled.div`
