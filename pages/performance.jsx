@@ -34,7 +34,7 @@ const ComponentContainer = styled.div`
 
 export default function Performance() {
   const title = 'Performance';
-  const description = 'How long does it take to render x components?';
+  const description = 'How long does it take to render x components? You need to use the Developer Tools to check.';
 
   const [variable, setVariable] = useState([]);
 
