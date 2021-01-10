@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import NavBar from './molecule/navbar';
+import NavBar from './navbar';
 
 const Wrapper = styled.div`
   width: 100%;

@@ -3,11 +3,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/layout';
-import GoogleTrends from '../components/molecule/googleTrends';
+import GoogleTrends from '../components/googleTrends';
+import GithubStars from '../components/githubStars';
+import NpmDownloads from '../components/npmDownloads';
 
 const Wrapper = styled.div`
   height: 100vh;
   background-color: #222129;
+  color: white;
 `;
 
 const StyledTitle = styled.h2`
@@ -37,28 +40,17 @@ const ComponentTitle = styled.div`
   text-align: center;
 `;
 
-const GoogleWrapper = styled.div`
-  padding: 2em;
+const SupportWrapper = styled.div`
+  padding: 1em;
 `;
 
-const GithubWrapper = styled.div`
-
-`;
-
-const GithubStars = styled.div`
-  width: 200px;
-  height: 200px;
-  background-color: white;
-  color: black;
+const GithubStarsWrapper = styled.div`
   text-align:center;
   align-items: center;
+  color: white;
 `;
 
-const NPMWrapper = styled.div`
-
-`;
-
-const NPMDownloads = styled.div`
+const NPMDownloadsWrapper = styled.div`
   width: 100%;
   height: 200px;
   background-color: white;
@@ -80,7 +72,7 @@ export default function Support() {
           {description}
         </Description>
         <ComponentContainer>
-          <GoogleWrapper id="widget">
+          <SupportWrapper id="widget">
             <ComponentTitle>
               Google Trends
             </ComponentTitle>
@@ -88,24 +80,24 @@ export default function Support() {
               type="TIMESERIES"
               url="https://ssl.gstatic.com/trends_nrtr/2431_RC03/embed_loader.js"
             />
-          </GoogleWrapper>
+          </SupportWrapper>
           <ComponentListContainer>
-            <GithubWrapper>
+            <SupportWrapper>
               <ComponentTitle>
                 Github-Stars
               </ComponentTitle>
-              <GithubStars>
-                TBD
-              </GithubStars>
-            </GithubWrapper>
-            <NPMWrapper>
+              <GithubStarsWrapper>
+                <GithubStars />
+              </GithubStarsWrapper>
+            </SupportWrapper>
+            <SupportWrapper>
               <ComponentTitle>
-                npm Downloads
+                npm Downloads in the last 7 days
               </ComponentTitle>
-              <NPMDownloads>
-                TBD
-              </NPMDownloads>
-            </NPMWrapper>
+              <NPMDownloadsWrapper>
+                <NpmDownloads />
+              </NPMDownloadsWrapper>
+            </SupportWrapper>
           </ComponentListContainer>
         </ComponentContainer>
       </Wrapper>

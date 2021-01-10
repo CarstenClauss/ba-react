@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Title from '../components/atoms/title';
 import Layout from '../components/layout';
 
 const Wrapper = styled.div`
@@ -16,6 +15,11 @@ const ComponentContainer = styled.div`
   padding: 0 1em 2em;
 `;
 
+const ContainerView = styled.div`
+  height: 90vh;
+  padding: 1em;
+`;
+
 const Description = styled.div`
   margin: 0 0 0 2em;
 `;
@@ -24,17 +28,25 @@ export default function Index() {
   return (
     <Layout>
       <Wrapper>
-        <Title>
-          REACT
-        </Title>
-        <ComponentContainer>
-          <Description>
-            [TBD: What is React? - shortdescription]
-          </Description>
-          <Description>
-            [TBD: What is this App? - shortdescription]
-          </Description>
-        </ComponentContainer>
+        <ContainerView>
+          <h1>
+            REACT
+          </h1>
+        </ContainerView>
+        <ContainerView>
+          <ComponentContainer>
+            <Description>
+              [TBD: What is React? - shortdescription]
+            </Description>
+          </ComponentContainer>
+        </ContainerView>
+        <ContainerView>
+          <ComponentContainer>
+            <Description>
+              [TBD: What is this App? - shortdescription]
+            </Description>
+          </ComponentContainer>
+        </ContainerView>
       </Wrapper>
     </Layout>
   );

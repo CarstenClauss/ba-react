@@ -12,7 +12,7 @@ const Wrapper = styled.nav`
 
 const NavigationWrapper = styled.div`
   width: 100%;
-  padding: 1.3rem 15%;
+  padding: 1rem 15%;
   border: 1px solid white;
 `;
 

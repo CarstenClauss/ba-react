@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Layout from '../components/layout';
-import RenderForm from '../components/molecule/renderform';
+import RenderForm from '../components/renderform';
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -44,7 +44,6 @@ export default function Performance() {
   const childHandler = (input) => {
     numbers = Array.from({ length: input }, () => (Math.random() * 0xFFFFFF << 0).toString(16));
     setVariable(numbers);
-    console.log(numbers);
   };
 
   const componentStyle = (color, x) => ({
