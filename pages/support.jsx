@@ -30,14 +30,15 @@ const ComponentContainer = styled.div`
   padding: 0 1em 2em;
 `;
 
-const ComponentListContainer = styled.div`
-  display:flex;
+const ComponentWrapper = styled.div`
+  display: flex;
   flex-direction: row;
-  justify-content: space-around;
 `;
 
 const ComponentTitle = styled.div`
-  text-align: center;
+  margin: 0 0 0.5em;
+  text-align: left;
+  font-weight: bold;
 `;
 
 const SupportWrapper = styled.div`
@@ -51,11 +52,9 @@ const GithubStarsWrapper = styled.div`
 `;
 
 const NPMDownloadsWrapper = styled.div`
-  width: 100%;
-  height: 200px;
-  background-color: white;
-  color: black;
   text-align:center;
+  align-items: center;
+  color: white;
 `;
 
 export default function Support() {
@@ -81,7 +80,7 @@ export default function Support() {
               url="https://ssl.gstatic.com/trends_nrtr/2431_RC03/embed_loader.js"
             />
           </SupportWrapper>
-          <ComponentListContainer>
+          <ComponentWrapper>
             <SupportWrapper>
               <ComponentTitle>
                 Github-Stars
@@ -92,13 +91,13 @@ export default function Support() {
             </SupportWrapper>
             <SupportWrapper>
               <ComponentTitle>
-                npm Downloads in the last 7 days
+                npm Downloads(last 7 days)
               </ComponentTitle>
               <NPMDownloadsWrapper>
                 <NpmDownloads />
               </NPMDownloadsWrapper>
             </SupportWrapper>
-          </ComponentListContainer>
+          </ComponentWrapper>
         </ComponentContainer>
       </Wrapper>
     </Layout>

@@ -1,44 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import Pie from 'react-chartjs-2';
 
 const Wrapper = styled.div`
-  color: black;
-  display: flex;
-  flex-direction: column;
-  color: white;
-`;
-
-const Circle = styled.div`
+  background-color: white;
   padding: 1em;
-  margin: 2em;
-  display: inline-block;
-  background-color: red;
-  border-radius: 50%;
-  left: 0;
-  top: 0;
-`;
-
-const ReactCircle = styled(Circle)`
-width: ${({ wid }) => (`${wid / 1000}px`)};
-height: ${({ wid }) => (`${wid / 1000}px`)};
-`;
-
-const VueCircle = styled(Circle)`
-width: ${({ wid }) => (`${wid / 1000}px`)};
-height: ${({ wid }) => (`${wid / 1000}px`)};
-`;
-
-const AngularCircle = styled(Circle)`
-width: ${({ wid }) => (`${wid / 1000}px`)};
-height: ${({ wid }) => (`${wid / 1000}px`)};
+  color: black;
 `;
 
 export default function GithubStars() {
   const [reactStars, setReactStars] = useState([]);
   const [vueStars, setVueStars] = useState([]);
   const [angularStars, setAngularStars] = useState([]);
-  const [allStars, setAllStars] = useState([]);
 
   useEffect(() => {
     axios.get('https://api.github.com/repos/facebook/react')
@@ -50,28 +24,28 @@ export default function GithubStars() {
     axios.get('https://api.github.com/repos/angular/angular')
       .then((response) => setAngularStars(response.data.stargazers_count))
       .catch((error) => setAngularStars(error));
-    setAllStars(reactStars + vueStars + angularStars);
-  });
-
-  console.log(allStars);
+  }, [reactStars, vueStars, angularStars]);
 
   return (
     <Wrapper>
-      <ReactCircle wid={reactStars}>
-        React:
-        {' '}
-        {reactStars}
-      </ReactCircle>
-      <VueCircle wid={vueStars}>
-        Vue:
-        {' '}
-        {vueStars}
-      </VueCircle>
-      <AngularCircle wid={angularStars}>
-        Angular:
-        {' '}
-        {angularStars}
-      </AngularCircle>
+      <Pie
+        data={{
+          labels: ['React', 'Vue', 'Angular'],
+          color: 'white',
+          datasets: [
+            {
+              label: '# of Votes',
+              data: [reactStars, vueStars, angularStars],
+              backgroundColor: [
+                '#2296F3',
+                '#F44335',
+                '#FFCA28',
+              ],
+            },
+          ],
+        }}
+        height="100%"
+      />
     </Wrapper>
   );
 }

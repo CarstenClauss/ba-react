@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import Pie from 'react-chartjs-2';
 
 const Wrapper = styled.div`
+  background-color: white;
+  padding: 1em;
   color: black;
-  display: flex;
-  flex-direction: column;
 `;
 
 export default function NpmDownloads() {
@@ -14,43 +15,36 @@ export default function NpmDownloads() {
   const [angularDownloads, setAngularDownloads] = useState([]);
 
   useEffect(() => {
-    axios.get('https://api.npmjs.org/downloads/range/last-week/react')
-      .then((response) => {
-        setReactDownloads(response.data.downloads[6].downloads);
-        // console.log('react: ', response.data.downloads);
-      })
+    axios.get('https://api.npmjs.org/downloads/point/last-week/react')
+      .then((response) => { setReactDownloads(response.data.downloads); })
       .catch((error) => setReactDownloads(error));
-    axios.get('https://api.npmjs.org/downloads/range/last-week/vue')
-      .then((response) => {
-        setVueDownloads(response.data.downloads[6].downloads);
-        // console.log('vue: ', response.data.downloads);
-      })
+    axios.get('https://api.npmjs.org/downloads/point/last-week/vue')
+      .then((response) => { setVueDownloads(response.data.downloads); })
       .catch((error) => setVueDownloads(error));
-    axios.get('https://api.npmjs.org/downloads/range/last-week/angular')
-      .then((response) => {
-        setAngularDownloads(response.data.downloads[6].downloads);
-        // console.log('angular: ', response.data.downloads);
-      })
+    axios.get('https://api.npmjs.org/downloads/point/last-week/angular')
+      .then((response) => { setAngularDownloads(response.data.downloads); })
       .catch((error) => setAngularDownloads(error));
   });
 
   return (
     <Wrapper>
-      <div>
-        React:
-        {' '}
-        {reactDownloads}
-      </div>
-      <div>
-        Vue:
-        {' '}
-        {vueDownloads}
-      </div>
-      <div>
-        Angular:
-        {' '}
-        {angularDownloads}
-      </div>
+      <Pie
+        data={{
+          labels: ['React', 'Vue', 'Angular'],
+          datasets: [
+            {
+              label: '# of Votes',
+              data: [reactDownloads, vueDownloads, angularDownloads],
+              backgroundColor: [
+                '#2296F3',
+                '#F44335',
+                '#FFCA28',
+              ],
+            },
+          ],
+        }}
+        height="100%"
+      />
     </Wrapper>
   );
 }
