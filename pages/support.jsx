@@ -43,6 +43,7 @@ const ComponentTitle = styled.div`
 
 const SupportWrapper = styled.div`
   padding: 1em;
+  width: calc(100% - 1em);
 `;
 
 const GithubStarsWrapper = styled.div`
@@ -59,7 +60,7 @@ const NPMDownloadsWrapper = styled.div`
 
 export default function Support() {
   const title = 'Support';
-  const description = 'How often where React searched compared to other Frameworks?';
+  const description = 'How big is the Community of each Framework?';
 
   return (
     <Layout>
