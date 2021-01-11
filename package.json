@@ -15,6 +15,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "axios": "^0.19.2",
+    "chart.js": "^2.9.4",
     "lodash": "^4.17.19",
     "next": "^10.0.1",
     "node-mailjet": "^3.3.1",
