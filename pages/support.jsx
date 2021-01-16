@@ -43,7 +43,7 @@ const ComponentTitle = styled.div`
 
 const SupportWrapper = styled.div`
   padding: 1em;
-  width: calc(100% - 1em);
+  width: calc(100% - 2em);
 `;
 
 const GithubStarsWrapper = styled.div`

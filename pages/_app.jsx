@@ -1,6 +1,7 @@
 import React from 'react';
 import App from 'next/app';
 import { createGlobalStyle } from 'styled-components';
+import Head from 'next/head';
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
@@ -12,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
     overflow-x: hidden;
+  }
     `;
 
 class MyApp extends App {
@@ -28,6 +30,10 @@ class MyApp extends App {
 
     return (
       <>
+        <Head>
+          <title>React</title>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        </Head>
         <GlobalStyle />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
         <Component {...pageProps} />
