@@ -1,77 +1,50 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-bitwise */
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/layout';
-import RenderForm from '../components/renderform';
+import PerformanceList from '../components/performanceList';
 
 const Wrapper = styled.div`
-  height: 100vh;
+  height: 100%
 `;
 
-const StyledTitle = styled.h2`
-  margin: 0 0 0.5em 1em;
+const ContainerView = styled.div`
+  padding: 0 1em;
+
+  h1 {
+    margin: 0.1em 0;
+  }
 `;
 
-const Description = styled.div`
-  margin: 0 0 0 2em;
+const Title = styled.i`
+  margin: 0 0.3em;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #61DBFB;
 `;
 
-const ComponentList = styled.div`
-  margin: 5px;
-  height: 40px;
-  width: 40px;
-  font-size: 0.5em;
-`;
-
-const ComponentContainer = styled.div`
-  width: calc(100vw - 2em);
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #222129;
-  padding: 0 1em 2em;
+const Description = styled.p`
+  line-height: 2em;
+  margin: 0 0.7em;
 `;
 
 export default function Performance() {
   const title = 'Performance';
   const description = 'How long does it take to render x components? You need to use the Developer Tools to check.';
 
-  const [variable, setVariable] = useState([]);
-
-  let numbers = [];
-  let i = 1;
-
-  const childHandler = (input) => {
-    numbers = Array.from({ length: input }, () => (Math.random() * 0xFFFFFF << 0).toString(16));
-    setVariable(numbers);
-  };
-
-  const componentStyle = (color, x) => ({
-    backgroundColor: x + color,
-  });
-
   return (
     <Layout>
       <Wrapper>
-        <StyledTitle>
-          {title}
-        </StyledTitle>
-        <Description>
-          {description}
-        </Description>
-        <RenderForm action={(input) => childHandler(input)} />
-        <ComponentContainer>
-          { variable.map((number) => (
-            <ComponentList
-              key={i++}
-              value={number.toString()}
-              style={componentStyle(number, '#')}
-            >
-              #
-              {i}
-            </ComponentList>
-          ))}
-        </ComponentContainer>
+        <ContainerView>
+          <h1>
+            <Title>
+              {title}
+            </Title>
+          </h1>
+          <Description>
+            {description}
+          </Description>
+          <PerformanceList />
+        </ContainerView>
       </Wrapper>
     </Layout>
   );

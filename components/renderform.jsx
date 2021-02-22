@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const FormWrapper = styled.div`
-  padding: 1em 1em 1em 2em;
+  padding: 1em 0 1em;
 `;
 
 const FormButtons = styled.div`
