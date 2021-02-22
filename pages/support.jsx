@@ -8,26 +8,22 @@ import GithubStars from '../components/githubStars';
 import NpmDownloads from '../components/npmDownloads';
 
 const Wrapper = styled.div`
-  height: 100vh;
+  height: 100%;
   background-color: #222129;
   color: white;
 `;
 
-const StyledTitle = styled.h2`
-  margin: 0 0 0.5em 1em;
-`;
-
 const Description = styled.div`
-  margin: 0 0 0 2em;
+  line-height: 2em;
+  margin: 0 0.7em;
 `;
 
 const ComponentContainer = styled.div`
   display:flex;
   flex-direction: column;
   justify-content: space-around;
-  width: calc(100vw - 2em);
   background-color: #222129;
-  padding: 0 1em 2em;
+  padding: 0 0 2em;
 `;
 
 const ComponentWrapper = styled.div`
@@ -35,10 +31,9 @@ const ComponentWrapper = styled.div`
   flex-direction: row;
 `;
 
-const ComponentTitle = styled.div`
-  margin: 0 0 0.5em;
-  text-align: left;
-  font-weight: bold;
+const GoogleWrapper = styled.div`
+  padding: 1em;
+  width: calc(100% - 2em);
 `;
 
 const SupportWrapper = styled.div`
@@ -58,6 +53,20 @@ const NPMDownloadsWrapper = styled.div`
   color: white;
 `;
 
+const ContainerView = styled.div`
+  padding: 0 1em;
+  h1 {
+    margin: 0.1em 0;
+  }
+`;
+
+const Title = styled.i`
+  margin: 0 0.3em;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #61DBFB;
+`;
+
 export default function Support() {
   const title = 'Support';
   const description = 'How big is the Community of each Framework?';
@@ -65,41 +74,45 @@ export default function Support() {
   return (
     <Layout>
       <Wrapper>
-        <StyledTitle>
-          {title}
-        </StyledTitle>
-        <Description>
-          {description}
-        </Description>
-        <ComponentContainer>
-          <SupportWrapper id="widget">
-            <ComponentTitle>
-              Google Trends
-            </ComponentTitle>
-            <GoogleTrends
-              type="TIMESERIES"
-              url="https://ssl.gstatic.com/trends_nrtr/2431_RC03/embed_loader.js"
-            />
-          </SupportWrapper>
-          <ComponentWrapper>
-            <SupportWrapper>
-              <ComponentTitle>
-                Github-Stars
-              </ComponentTitle>
-              <GithubStarsWrapper>
-                <GithubStars />
-              </GithubStarsWrapper>
-            </SupportWrapper>
-            <SupportWrapper>
-              <ComponentTitle>
-                npm Downloads(last 7 days)
-              </ComponentTitle>
-              <NPMDownloadsWrapper>
-                <NpmDownloads />
-              </NPMDownloadsWrapper>
-            </SupportWrapper>
-          </ComponentWrapper>
-        </ComponentContainer>
+        <ContainerView>
+          <h1>
+            <Title>
+              {title}
+            </Title>
+          </h1>
+          <Description>
+            {description}
+          </Description>
+          <ComponentContainer>
+            <GoogleWrapper id="widget">
+              <Title>
+                Google Trends
+              </Title>
+              <GoogleTrends
+                type="TIMESERIES"
+                url="https://ssl.gstatic.com/trends_nrtr/2431_RC03/embed_loader.js"
+              />
+            </GoogleWrapper>
+            <ComponentWrapper>
+              <SupportWrapper>
+                <Title>
+                  Github-Stars
+                </Title>
+                <GithubStarsWrapper>
+                  <GithubStars />
+                </GithubStarsWrapper>
+              </SupportWrapper>
+              <SupportWrapper>
+                <Title>
+                  npm Downloads(last 7 days)
+                </Title>
+                <NPMDownloadsWrapper>
+                  <NpmDownloads />
+                </NPMDownloadsWrapper>
+              </SupportWrapper>
+            </ComponentWrapper>
+          </ComponentContainer>
+        </ContainerView>
       </Wrapper>
     </Layout>
   );
