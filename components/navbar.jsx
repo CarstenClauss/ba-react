@@ -6,12 +6,12 @@ const Wrapper = styled.nav`
   align-items: center;
   box-sizing: border-box;
   display: flex;
-  padding: 1em;
+  padding: 1em 1em 0.5em;
   width: 100%;
 `;
 
 const NavigationWrapper = styled.div`
-  width: 100%;
+  width: calc(100% - 30%);
   padding: 1rem 15%;
   border: 1px solid white;
 `;
@@ -27,6 +27,13 @@ const Navigation = styled.div`
 const NavigationButton = styled.a`
   padding: 0 1em;
   cursor: pointer;
+  line-height: 2em;
+  letter-spacing: 0.25em;
+
+  :hover {
+    color: #61DBFB;
+    font-weight: bold;
+  }
 `;
 
 export default function Navbar() {
