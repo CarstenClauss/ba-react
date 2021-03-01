@@ -67,6 +67,19 @@ const Title = styled.i`
   color: #61DBFB;
 `;
 
+const GoogleLink = styled.a`
+  padding: 0 0.5em;
+  cursor: pointer;
+  text-decoration: none;
+  color: #61DBFB;
+  font-weight: lighter;
+  font-size: 0.7em;
+
+  :hover {
+    color: white;
+  }
+`;
+
 export default function Support() {
   const title = 'Support';
   const description = 'How big is the Community of each Framework?';
@@ -87,6 +100,9 @@ export default function Support() {
             <GoogleWrapper id="widget">
               <Title>
                 Google Trends
+                <GoogleLink href="https://trends.google.com/trends/explore?cat=733&date=today%205-y&q=React,Vue,Angular">
+                  (Link)
+                </GoogleLink>
               </Title>
               <GoogleTrends
                 type="TIMESERIES"
