@@ -15,13 +15,13 @@ export default function NpmDownloads() {
   const [angularDownloads, setAngularDownloads] = useState([]);
 
   useEffect(() => {
-    axios.get('https://api.npmjs.org/downloads/point/last-week/react')
+    axios.get('https://api.npmjs.org/downloads/point/last-month/react')
       .then((response) => { setReactDownloads(response.data.downloads); })
       .catch((error) => setReactDownloads(error));
-    axios.get('https://api.npmjs.org/downloads/point/last-week/vue')
+    axios.get('https://api.npmjs.org/downloads/point/last-month/vue')
       .then((response) => { setVueDownloads(response.data.downloads); })
       .catch((error) => setVueDownloads(error));
-    axios.get('https://api.npmjs.org/downloads/point/last-week/angular')
+    axios.get('https://api.npmjs.org/downloads/point/last-month/angular')
       .then((response) => { setAngularDownloads(response.data.downloads); })
       .catch((error) => setAngularDownloads(error));
   });

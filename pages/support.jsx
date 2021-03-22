@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable react/no-danger */
 import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/layout';
