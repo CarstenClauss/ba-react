@@ -28,12 +28,21 @@ const StyledInput = styled.input`
   margin: 1em 2em 0 0;
 `;
 
+const Title = styled.i`
+  margin: 0 0.3em;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #61DBFB;
+`;
+
 export default function Renderform({ action }) {
   const [input, setInput] = useState(0);
 
   return (
     <FormWrapper>
-      Enter a number.
+      <Title>
+        Enter a number.
+      </Title>
       <FormButtons>
         <StyledInput
           type="number"
